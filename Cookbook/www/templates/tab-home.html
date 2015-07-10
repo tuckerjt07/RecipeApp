@@ -1,0 +1,25 @@
+<ion-view view-title="Cookbook">
+    <ion-content class="padding">
+        <div name="TopRecipesDisplay" ng-controller="TopRecipesCtrl as topRecipes" ng-init="topRecipes.getTopRecipes()" class="text-center">
+            <ion-slide-box
+                           does-continue="true"
+                           auto-play="true"
+                           slide-interval="5000"
+                           show-pager="false"
+                           delegate-handle="slideBoxTopFive"
+                           ng-if="topRecipes.mostPopular">
+                <ion-slide ng-repeat="image in topRecipes.mostPopular track by $index">
+                    <a ng-click="topRecipes.openModal(image.link)" >
+                        <h4 class="text-center">{{image.description}}</h4>
+                        <img ng-src="{{image.src}}" alt="{{image.description}}" style="max-height: 40vh; max-width: 90vw;" />
+                    </a>
+                </ion-slide>
+            </ion-slide-box>
+        </div>
+    </ion-content>
+</ion-view>
+<script id="topfivepopup.html" type="text/ng-template">
+    <ion-modal-view>
+        <iframe ng-src="{{pageToLoad}}"></iframe>
+    </ion-modal-view>
+</script>

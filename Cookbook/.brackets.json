@@ -1,0 +1,21 @@
+{
+    "jscodehints.detectedExclusions": [
+        "/Users/jacobtucker/Toolbox/Workspace/RecipeBook/Cookbook/plugins/org.apache.cordova.device/src/blackberry10/index.js",
+        "/Users/jacobtucker/Toolbox/Workspace/RecipeBook/Cookbook/plugins/org.apache.cordova.device/src/browser/DeviceProxy.js",
+        "/Users/jacobtucker/Toolbox/Workspace/RecipeBook/Cookbook/plugins/org.apache.cordova.device/src/firefoxos/DeviceProxy.js",
+        "/Users/jacobtucker/Toolbox/Workspace/RecipeBook/Cookbook/plugins/org.apache.cordova.device/src/tizen/DeviceProxy.js",
+        "/Users/jacobtucker/Toolbox/Workspace/RecipeBook/Cookbook/plugins/org.apache.cordova.device/src/ubuntu/device.js",
+        "/Users/jacobtucker/Toolbox/Workspace/RecipeBook/Cookbook/plugins/org.apache.cordova.device/src/windows/DeviceProxy.js",
+        "/Users/jacobtucker/Toolbox/Workspace/RecipeBook/Cookbook/plugins/org.apache.cordova.device/src/windows8/DeviceProxy.js",
+        "/Users/jacobtucker/Toolbox/Workspace/RecipeBook/Cookbook/www/js/controllers.js",
+        "/Users/jacobtucker/Toolbox/Workspace/RecipeBook/Cookbook/www/js/services.js",
+        "/Users/jacobtucker/Toolbox/Workspace/RecipeBook/Cookbook/www/lib/ionic/js/angular/angular-animate.js",
+        "/Users/jacobtucker/Toolbox/Workspace/RecipeBook/Cookbook/www/lib/ionic/js/angular/angular-animate.min.js",
+        "/Users/jacobtucker/Toolbox/Workspace/RecipeBook/Cookbook/www/js/app.js",
+        "/Users/jacobtucker/Toolbox/Workspace/RecipeBook/Cookbook/www/js/Global/globalpackage.js",
+        "/Users/jacobtucker/Toolbox/Workspace/RecipeBook/Cookbook/www/lib/ionic/js/angular/angular-resource.min.js",
+        "/Users/jacobtucker/Toolbox/Workspace/RecipeBook/Cookbook/www/lib/ionic/js/angular/angular-resource.js",
+        "/Users/jacobtucker/Toolbox/Workspace/RecipeBook/Cookbook/www/lib/ionic/js/angular/angular-sanitize.js",
+        "/Users/jacobtucker/Toolbox/Workspace/RecipeBook/Cookbook/www/lib/ionic/js/angular/angular-sanitize.min.js"
+    ]
+}

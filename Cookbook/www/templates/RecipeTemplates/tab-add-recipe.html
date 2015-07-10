@@ -1,0 +1,146 @@
+<ion-view view-title="Recipe Input">
+    <ion-content class="padding">
+        <form name="recipe"
+              class="list"
+              ng-controller="EditRecipeCtrl as editRecipe"
+              ng-init='editRecipe.loadRecipe()'
+              ng-submit="editRecipe.updateRecipe(recipe)">
+            <label for="title" class="item item-input">
+                <input type="text"
+                       name="title"
+                       class=""
+                       ng-model="editRecipe.Recipe.title"
+                       placeholder="Title"
+                       required />
+            </label>
+            <div class="row">
+<!--                ng-controller="CourseCtrl as Course"-->
+                <select
+
+                        ng-options="course.Text for course in Course.Courses"
+                        class="item item-input"
+                        ng-model="editRecipe.course"
+                        required>
+                    <option value="">-- Select Type --</option>
+                </select>
+            </div>
+            <div class="row">
+<!--                ng-controller="CuisineCtrl as Cuisine"-->
+                <select
+
+                        ng-options="cuisine.Text for cuisine in Cuisine.Cuisines"
+                        class="item item-input"
+                        ng-model="editRecipe.cuisine"
+                        required>
+                    <option value="">-- Select Cuisine --</option>
+                </select>
+            </div>
+            <div class="row">
+                <label for="timeToCook"
+                       class="item item-input">
+                    <input type="text"
+                           name="ingredient"
+                           class=""
+                           ng-model="editRecipe.timeToCook"
+                           placeholder="Time to Cook"
+                           ui-mask="99 hours 99 minutes"
+                           required />
+                </label>
+            </div>
+            <div>
+                <div class="row row-center">
+                    <div class="col-90">
+                        <div class="row responsive-sm">
+                            <label for="ingredient"
+                                   class="item item-input col-50">
+                                <input type="text"
+                                       name="ingredient"
+                                       class=""
+                                       ng-model="editRecipe.Ingredient"
+                                       placeholder="Ingredient"
+                                       required />
+                            </label>
+                            <label for="amount" class="item item-input col-25">
+                                <input type="tel"
+                                       name="amount"
+                                       class=""
+                                       ng-model="editRecipe.Amount"
+                                       placeholder="Amount"
+                                       required />
+                            </label>
+                            <select
+                                    ng-options="measurement.text for measurement in editRecipe.MeasurementsList"
+                                    class="item item-input col-25"
+                                    ng-model="editRecipe.Measurement"
+                                    required>
+                                <option value="">-- Select Measurement Type --</option>
+                            </select>
+                            <div style="padding-left: 30px;"
+                                 class="responsive-sm-button-right">
+                                <button class="button icon ion-android-add"
+                                        on-tap="editRecipe.addIngredient()"></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div ng-show="editRecipe.Recipe.ingredients.length > 0">
+                    <div class="card">
+                        <div class="item item-divider text-center">
+                            Ingredients
+                        </div>
+                    </div>
+                    <div class="list card">
+                        <div ng-repeat="ingredient in editRecipe.Recipe.ingredients track by $index"
+                             class="item item-text-wrap"
+                             on-swipe-left="editRecipe.removeIngredient($index)"
+                             on-swipe-right="editRecipe.removeIngredient($index)">
+                            <span>{{ingredient.Amount}} {{ingredient.Measurement.Text}} {{ingredient.Ingredient}}</span>
+                            <a class="icon-pull-right ion-android-remove-circle assertive"
+                               on-tap="editRecipe.removeIngredient($index)"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-center">
+                <div class="col-90">
+                    <div class="row responsive-sm">
+                        <label for="instruction"
+                               class="item item-input col-90 col-offset-10">
+                            <input type="text"
+                                   name="instruction"
+                                   ng-model="Instruction"
+                                   placeholder="Step" />
+                        </label>
+                        <div style="padding-left: 30px;"
+                             class="responsive-sm-button-right">
+                            <button class="button icon ion-android-add"
+                                    on-tap="editRecipe.addStep(Instruction)"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div ng-show="editRecipe.Recipe.steps.length > 0">
+                <div class="card">
+                    <div class="item item-divider text-center">
+                        Steps
+                    </div>
+                </div>
+                <div class="list card">
+                    <div ng-repeat="step in editRecipe.Recipe.steps track by $index"
+                         class="item item-text-wrap"
+                         on-swipe-left="editRecipe.removeStep($index)"
+                         on-swipe-right="editRecipe.removeStep($index)">
+                        {{step.Step}}. {{step.Text}}
+                        <a class="icon-pull-right ion-android-remove-circle assertive"
+                           on-tap="editRecipe.removeStep($index)"></a>
+                    </div>
+                </div>
+            </div>
+            <div ng-controller="EditRecipeCameraCtrl as recipeCameraCtrl" ng-show="recipeCameraCtrl.img !== null">
+                <img data-ng-src="{{recipeCameraCtrl.img}}" alt="Photo of food" />
+                <button type="button"
+                        on-tap="recipeCameraCtrl.takePhoto()">Take Photo</button>
+            </div>
+        </form>
+    </ion-content>
+</ion-view>

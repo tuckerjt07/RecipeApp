@@ -1,0 +1,68 @@
+<ion-view view-title="Recipe Details">
+    <ion-content class="padding" ng-controller="SingleRecipeCtrl as Recipe" ng-init="Recipe.loadRecipe()">
+        <div class="list card">
+
+            <div class="item item-avatar">
+                <div class="float-right">
+                    <button class="button button-clear button-positive" ui-sref="tab.recipe-edit({recipeId: Recipe.Recipe._id})">Edit</button>
+                </div>
+                <img ng-src="Recipe.User.img" ng-show="Recipe.User.img"/>
+                <h2>{{Recipe.Recipe.title}}</h2>
+                <p>{{Recipe.Recipe.description}}</p>
+            </div>
+
+            <div class="item item-body">
+                <img class="full-image" ng-src="{{Recipe.img}}">
+                <div class="row responsive-sm">
+                    <div class="col">
+                        <strong>Course: </strong> {{Recipe.Recipe.course.Text}}
+                    </div>
+                    <div class="col">
+                        <strong>Cuisine: </strong> {{Recipe.Recipe.genre.Text}}
+                    </div>
+                    <div class="col">
+                        <strong>Time to Prepare: </strong> {{Recipe.Recipe.timeToCook}} hours
+                    </div>
+                </div>
+                <div class="item item-divider">
+                    Ingredients
+                </div>
+                <ol ng-repeat="ingredient in Recipe.Recipe.ingredients track by $index">
+                    <li>
+                        {{$index + 1}}. {{ingredient.Amount}} {{ingredient.Measurement.Text}} {{ingredient.Ingredient}}
+                    </li>
+                </ol>
+                <div class="item item-divider margin-top-sm">
+                    Steps
+                </div>
+                <ol ng-repeat="step in Recipe.Recipe.steps track by $index">
+                    <li>
+                        {{$index + 1}}. {{step.Text}}
+                    </li>
+                </ol>
+                <p class="">
+                    <a href="#" class="subdued row">{{Recipe.Recipe.favorited}} Likes</a>
+                    <span class="row">
+                        Rating <rating class="energized" style="pointer-events: none;" ng-model="Recipe.Recipe.ranking" max="Recipe.max"></rating>
+                    </span>
+                </p>
+            </div>
+
+            <div class="item tabs tabs-secondary tabs-icon-left">
+                <a class="tab-item" href="#">
+                    <i class="icon ion-thumbsup"></i>
+                    Like
+                </a>
+                <a class="tab-item" href="#">
+                    <i class="icon ion-chatbox"></i>
+                    Comment
+                </a>
+                <a class="tab-item" href="#">
+                    <i class="icon ion-share"></i>
+                    Share
+                </a>
+            </div>
+
+        </div>
+    </ion-content>
+</ion-view>

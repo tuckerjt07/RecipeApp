@@ -1,0 +1,36 @@
+<ion-view view-title="Favorite Recipes">
+    <ion-content class="padding" ng-controller="RecipeCtrl as Recipe" ng-init="Recipe.getRecipes()">
+        <div class="list" ng-repeat="recipe in Recipe.Recipes track by $index">
+            <a class="item item-thumbnail-left"
+               href="#"
+               on-drag-down="Recipe.openExtendedView(recipe)"
+               on-hold="Recipe.editMode(recipe)"
+               ui-sref='tab.recipes-detail({recipeId: recipe._id})'>
+                <img ng-src="{{recipe.Img}}">
+                <h2>{{recipe.title}}</h2>
+                <p><strong>{{recipe.description}}</strong>
+                </p>
+                <p>Course: <strong>{{recipe.course.Text}}</strong> Cuisine: <strong>{{recipe.genre.Text}}</strong>
+                </p>
+                <p>Favorited by: <strong>{{recipe.favorited}}</strong>
+                </p>
+                <rating class="energized" style="pointer-events: none;" ng-model="recipe.ranking" max="Recipe.max"></rating>
+                <div class="float-right"
+                     ng-show="recipe.editMode">
+                    Edit
+                </div>
+            </a>
+            <div class="sub-card"
+                 ng-show="recipe.viewMore"
+                 on-drag-up="Recipe.openExtendedView(recipe)"
+                 on-hold="Recipe.editMode(recipe)"
+                 ui-sref='tab.recipes-detail({recipeId: recipe._id})'>
+                <div class="">
+                    <p><strong>Ingredients: </strong><span ng-repeat="ingredient in recipe.ingredients track by $index">{{ingredient.Ingredient}}  </span></p>
+                    <p><strong>Number of Steps: </strong>{{recipe.steps.length}}</p>
+                    <p><strong>Time to Prepare: </strong>{{recipe.timeToCook}}</p>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>
